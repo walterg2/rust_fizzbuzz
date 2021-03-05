@@ -1,4 +1,7 @@
 fn fizzbuzz(num: i8) -> String {
+    if num % (3*5) == 0 {
+        return "fizzbuzz".to_string();
+    }
     if num % 3 == 0 {
         return "fizz".to_string();
     }
@@ -46,5 +49,11 @@ mod tests {
         assert_eq!(fizzbuzz(5), "buzz");
         assert_eq!(fizzbuzz(10), "buzz");
         assert_eq!(fizzbuzz(20), "buzz");
+    }
+
+    #[test]
+    fn test_it_returns_fizzbuzz_when_given_a_multiple_of_3_and_5() {
+        assert_eq!(fizzbuzz(15), "fizzbuzz");
+        assert_eq!(fizzbuzz(30), "fizzbuzz");
     }
 }

@@ -2,6 +2,10 @@ fn fizzbuzz(num: i8) -> String {
     if num % 3 == 0 {
         return "fizz".to_string();
     }
+    if num % 5 == 0 {
+        return "buzz".to_string();
+    }
+
     return num.to_string();
 }
 
@@ -28,5 +32,19 @@ mod tests {
         assert_eq!(fizzbuzz(6), "fizz");
         assert_eq!(fizzbuzz(9), "fizz");
         assert_eq!(fizzbuzz(12), "fizz");
+    }
+
+    #[test]
+    fn test_it_returns_buzz_when_given_a_5() {
+        let result = fizzbuzz(5);
+
+        assert_eq!(result, "buzz");
+    }
+
+    #[test]
+    fn test_it_returns_buzz_when_given_a_multiple_of_5() {
+        assert_eq!(fizzbuzz(5), "buzz");
+        assert_eq!(fizzbuzz(10), "buzz");
+        assert_eq!(fizzbuzz(20), "buzz");
     }
 }
